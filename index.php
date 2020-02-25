@@ -1,6 +1,8 @@
 <?php
   include __DIR__.'/database.php';
 
+  // var_dump($database);
+  // die();
  ?>
  <!DOCTYPE html>
  <html lang="en">
@@ -14,50 +16,26 @@
  <body>
    <header>
      <div class="header-top">
-       <img src="dist/img/icon.png" alt="">
+       <img class="logo"src="dist/img/logo3.png" alt="">
      </div>
    </header>
    <main>
        <div class="wrapper">
          <div class="first">
-            <div class="box">
-              <img src="" alt="">
-              <h3></h3>
-              <p></p>
-              <small></small>
-            </div>
-            <div class="box">
-              <img src="" alt="">
-              <h3></h3>
-              <p></p>
-              <small></small>
-            </div>
-            <div class="box">
-              <img src="" alt="">
-              <h3></h3>
-              <p></p>
-              <small></small>
-            </div>
-         </div>
-         <div class="second">
-           <div class="box">
-             <img src="" alt="">
-             <h3></h3>
-             <p></p>
-             <small></small>
-           </div>
-           <div class="box">
-             <img src="" alt="">
-             <h3></h3>
-             <p></p>
-             <small></small>
-           </div>
-           <div class="box">
-             <img src="" alt="">
-             <h3></h3>
-             <p></p>
-             <small></small>
-           </div>
+           <?php foreach ($database as $disco) { ?>
+             <div class="box">
+               <?php
+                $title= $disco['title'];
+                $author= $disco['author'];
+                $year= $disco['year'];
+                $poster= $disco['poster'];
+                ?>
+               <img class="poster" src=" <?php echo $poster; ?>" alt="">
+               <h2 class="album"> <?php echo $title; ?></h2>
+               <p class="autore"> <?php echo $author; ?></p>
+               <small class="anno"> <?php echo $year; ?></small>
+             </div>
+            <?php } ?>
          </div>
        </div>
    </main>
