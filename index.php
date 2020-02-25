@@ -16,7 +16,9 @@
  <body>
    <header>
      <div class="header-top">
-       <img class="logo"src="dist/img/logo3.png" alt="">
+       <div class="logo">
+         <img class="spotify"src="dist/img/logo4.jpg" alt="">
+       </div>
      </div>
    </header>
    <main>
