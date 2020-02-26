@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 body {
+  font-family: $fontPage;
+  font-size: $fontSize;
   background-color: rgb(43, 42, 46);
   color: $fontColor;
 }

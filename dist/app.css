@@ -1,4 +1,4 @@
-.header-top {
+@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);.header-top {
   position: fixed;
   top: 0;
   right: 0;
@@ -64,6 +64,14 @@ main {
   font-weight: bold;
 }
 
+.wrapper .first .box .poster .album .autore {
+  color: grey;
+}
+
+.wrapper .first .box .poster .album .autore .anno {
+  color: grey;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -71,6 +79,8 @@ main {
 }
 
 body {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
   background-color: #2b2a2e;
   color: white;
 }

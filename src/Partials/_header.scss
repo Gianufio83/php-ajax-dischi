@@ -52,6 +52,12 @@ main {
           width: 100%;
           .album {
             font-weight: bold;
+            .autore {
+              color: $color;
+              .anno {
+                color:$color;
+              }
+            }
           }
         }
       }

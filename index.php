@@ -23,26 +23,32 @@
    </header>
    <main>
        <div class="wrapper">
-         <div class="first">
-           <?php foreach ($database as $disco) { ?>
-             <div class="box">
-               <?php
-                $title= $disco['title'];
-                $author= $disco['author'];
-                $year= $disco['year'];
-                $poster= $disco['poster'];
-                ?>
-               <img class="poster" src=" <?php echo $poster; ?>" alt="">
-               <h2 class="album"> <?php echo $title; ?></h2>
-               <p class="autore"> <?php echo $author; ?></p>
-               <small class="anno"> <?php echo $year; ?></small>
-             </div>
-            <?php } ?>
-         </div>
+         <?php if (!empty($database)) { ?>
+           <div class="first">
+             <?php foreach ($database as $disco) { ?>
+               <div class="box">
+                 <?php
+                  $title= $disco['title'];
+                  $author= $disco['author'];
+                  $year= $disco['year'];
+                  $poster= $disco['poster'];
+                  ?>
+                 <img class="poster" src=" <?php echo $poster; ?>" alt="">
+                 <h2 class="album"> <?php echo $title; ?></h2>
+                 <p class="autore"> <?php echo $author; ?></p>
+                 <small class="anno"> <?php echo $year; ?></small>
+               </div>
+              <?php } ?>
+           </div>
+         <?php }  else { ?>
+           <h2> Non ci sono Dischi</h2>
+          <?php } ?>
+
        </div>
    </main>
    <footer>
 
    </footer>
+
  </body>
  </html>
