@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto&display=swap);.header-top {
+.header-top {
   position: fixed;
   top: 0;
   right: 0;
@@ -79,7 +79,6 @@ main {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
   font-size: 14px;
   background-color: #2b2a2e;
   color: white;

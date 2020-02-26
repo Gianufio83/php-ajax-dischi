@@ -15815,9 +15815,44 @@ module.exports = g;
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js"); // $(document).ready(function(){
-//   alert('Ciao');
-// });
+var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
+
+$(document).ready(function () {
+  // alert('Ciao');
+  $.ajax({
+    url: 'http://localhost/php-ajax-dischi/server.php',
+    method: 'GET',
+    success: function success(data) {
+      printDischi(dischi);
+    },
+    error: function error() {
+      alert('Errore');
+    }
+  });
+});
+
+function printDischi(dischi) {
+  var source = $('#dischi-template').html();
+  var template = Handlebars.compile(source);
+
+  for (var i = 0; i < dischi.length; i++) {
+    var disco = disco[i]; // var image = disco.poster;
+    // var titolo = disco.title;
+    // var autore = disco.author;
+    // var anno = disco.year
+
+    var context = {
+      poster: disco.poster,
+      title: disco.title,
+      author: disco.author,
+      year: disco.year
+    };
+    var html = template(context);
+    $('.first').append(html);
+  }
+}
+
+;
 
 /***/ }),
 
