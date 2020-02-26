@@ -19,7 +19,7 @@
    </header>
     <div class="wrapper">
 
-      <select class="authors" name="">
+      <select name="authors" id="autori">
         <option value="Seleziona un autore">Seleziona un autore</option>
         <option value="Bon Jovi">Bon Jovi</option>
         <option value="The Beatles">The Beatles</option>

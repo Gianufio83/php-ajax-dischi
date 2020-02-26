@@ -1,8 +1,8 @@
 <?php
-  include __DIR__.'/database.php';
+  include 'database.php';
 
 
-  $nameDisco = $_GET['author'];
+  $nameDisco= $_GET['author'];
   if (empty($nameDisco) || $nameDisco === 'Seleziona un autore' ) {
     header('Content-Type: application/json');
     echo json_encode($database);
