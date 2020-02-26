@@ -8,18 +8,16 @@ $(document).ready(function(){
     url:'http://localhost/php-ajax-dischi/server.php',
     method: 'GET',
     success: function (data) {
-      console.log(data);
-      // printDischi(data);
+      reset();
+      var source = $('#dischi-template').html();
+      var template = Handlebars.compile(source);
+      for (var i = 0; i < data.length; i++) {
+        // console.log(data[i]);
+        var context = data[i];
+        var html = template(context);
+        $('.first').append(html);
+       }
 
-        var source = $('#dischi-template').html();
-        var template = Handlebars.compile(source);
-        for (var i = 0; i < data.length; i++) {
-         console.log(data[i]);
-         var context = data[i];
-         var html = template(context);
-         $('.first').append(html);
-
-    }
     },
     error: function () {
       alert('Errore');
@@ -27,7 +25,41 @@ $(document).ready(function(){
     }
   }
   );
+  $('select').change(function() {
+      var author = $(this).val();
+      console.log(author);
+      $.ajax(
+      {
+        url:'http://localhost/php-ajax-dischi/server.php',
+        method: 'GET',
+        data: {
+         author : author
+       },
+        success: function (data) {
+          reset();
+          var source = $('#dischi-template').html();
+          var template = Handlebars.compile(source);
+          for (var i = 0; i < data.length; i++) {
+            // console.log(data[i]);
+            var context = data[i];
+            var html = template(context);
+            $('.first').append(html);
+           }
+
+        },
+        error: function () {
+          alert('Errore');
+          discoNotFound();
+        }
+      }
+      );
+  });
+
+
+
 });
+
+
 
 // function printDischi(dischi) {
 //
@@ -52,3 +84,6 @@ function discoNotFound() {
     var html = template();
     $('.first').append(html);
   };
+  function reset() {
+    $('.first').html('');
+  }

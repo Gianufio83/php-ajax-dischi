@@ -15823,8 +15823,8 @@ $(document).ready(function () {
     url: 'http://localhost/php-ajax-dischi/server.php',
     method: 'GET',
     success: function success(data) {
-      console.log(data); // printDischi(data);
-
+      // console.log(data);
+      // printDischi(data);
       var source = $('#dischi-template').html();
       var template = Handlebars.compile(source);
 
@@ -15839,6 +15839,20 @@ $(document).ready(function () {
       alert('Errore');
       discoNotFound();
     }
+  });
+  $(".authors").change(function () {
+    var author = $(this).val();
+    $.ajax({
+      url: 'http://localhost/php-ajax-dischi/server.php',
+      method: 'GET',
+      data: {
+        autore: author
+      },
+      success: function success(data) {},
+      error: function error() {
+        alert('Errore');
+      }
+    });
   });
 }); // function printDischi(dischi) {
 //
