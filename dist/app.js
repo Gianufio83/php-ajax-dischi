@@ -15823,7 +15823,13 @@ $(document).ready(function () {
     url: 'http://localhost/php-ajax-dischi/server.php',
     method: 'GET',
     success: function success(data) {
-      printDischi(dischi);
+      if (data.lenght > 0) {
+        printDischi(dischi);
+      } else {
+        discoNotFound();
+      }
+
+      ;
     },
     error: function error() {
       alert('Errore');
@@ -15836,11 +15842,7 @@ function printDischi(dischi) {
   var template = Handlebars.compile(source);
 
   for (var i = 0; i < dischi.length; i++) {
-    var disco = disco[i]; // var image = disco.poster;
-    // var titolo = disco.title;
-    // var autore = disco.author;
-    // var anno = disco.year
-
+    var disco = disco[i];
     var context = {
       poster: disco.poster,
       title: disco.title,
@@ -15850,6 +15852,15 @@ function printDischi(dischi) {
     var html = template(context);
     $('.first').append(html);
   }
+}
+
+;
+
+function discoNotFound() {
+  var source = $('#noresults-template').html();
+  var template = Handlebars.compile(source);
+  var html = template();
+  $('.first').append(html);
 }
 
 ;
