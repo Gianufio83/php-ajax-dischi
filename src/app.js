@@ -7,6 +7,7 @@ $(document).ready(function(){
     url:'http://localhost/php-ajax-dischi/server.php',
     method: 'GET',
     success: function(data) {
+      reset();
       printCd(data);
     },
     error: function(request, state, errors) {
@@ -22,9 +23,10 @@ $(document).ready(function(){
         url:'http://localhost/php-ajax-dischi/server.php',
         method: 'GET',
         data: {
-         author : author
+         'author' : author
        },
         success: function (data) {
+          reset();
           printCd(data);
         },
         error: function(request, state, errors) {
@@ -35,11 +37,8 @@ $(document).ready(function(){
   });
 });
 
-
-
-
 function printCd(result) {
-  reset();
+
   var source = $('#dischi-template').html();
    var template = Handlebars.compile(source);
 
@@ -67,4 +66,4 @@ function discoNotFound() {
   };
   function reset() {
     $('.first').html('');
-  }
+  };
